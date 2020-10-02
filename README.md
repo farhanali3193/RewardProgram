@@ -1,7 +1,5 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Please check data.js for valid customer names.
-
 ## Available Scripts
 
 In the project directory, you can run:
