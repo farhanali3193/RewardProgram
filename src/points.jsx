@@ -27,15 +27,15 @@ function Points (props){
     const totalItemsPurchased = props.filteredData;
 
     props.filteredData.forEach((item)=>{
-        if(item.date[1] === '9'){
+        if(item.date.getMonth() === 8){
             septItemsPurchased.push(item);
-        } else if(item.date[1] === '8'){
+        } else if(item.date.getMonth() === 7){
             augItemsPurchased.push(item);
-        } else if (item.date[1]=== '7'){
+        } else if (item.date.getMonth()=== 6){
             julItemsPurchased.push(item);
         }
     })
-    
+
     const totalAmtArr = totalItemsPurchased.map((item)=>item.amt)
     const totalPointsArr = mapper(totalAmtArr);
     const totalPoints = reducer(totalPointsArr)
@@ -52,14 +52,18 @@ function Points (props){
     const julPointsArr = mapper(julAmtArr);
     const julPoints = reducer(julPointsArr);
 
-    return(
-        <div>
+    if(props.name === ''){
+        return <p>Please Enter A Valid Customer Name</p>
+        
+    } else {
+        return (
+            <div>
             <p> {props.name} has a total of {totalPoints} points</p> 
             <p> {props.name} received {septPoints} points in September</p> 
             <p> {props.name} received {augPoints} points in August</p> 
             <p> {props.name} received {julPoints} points in July</p> 
-        </div>
-      
-    )
+        </div>    
+        )
+    }    
 }
 export default Points;

@@ -16,7 +16,7 @@ class Input extends React.Component{
     }
 
     filteredData = () => {
-        const filteredArr = this.state.data.filter((item) => item.name === this.state.name)
+        const filteredArr = this.state.data.filter((item) => item.name.toLowerCase() === this.state.name.toLowerCase())
         return filteredArr;
     }
 
